@@ -1,0 +1,90 @@
+Na codificação do backend, foi definido primeiramente como seria estruturado o banco de dados, onde foi definido que
+haveriam 5 tabelas, sendo essas as tabelas de: Avaliação geral, Avaliação de compras, Compras, Fornecedores e de Funcionários.
+Todas as tabelas foram desenvolvidas em mysql com o seguinte código:
+
+CREATE TABLE Fornecedores (
+	id int NOT NULL PRIMARY KEY,
+    fornecedor varchar(100) NOT NULL,
+    produto varchar(100) NOT NULL,
+    email varchar(100),
+    contato_telefonico varchar(30),
+    cidade varchar(100) NOT NULL,
+    fornecedor_local boolean,
+    link varchar(255),
+    categoria varchar(30),
+    status_atual varchar(30),
+    filial varchar(30) NOT NULL
+);
+
+CREATE TABLE Funcionarios (
+    id int NOT NULL,
+    nome varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    contato_telefonico varchar(30),
+    cidade varchar(100) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE id (id),
+	UNIQUE nome (nome),
+    UNIQUE email (email),
+    UNIQUE contato_telefonico (contato_telefonico)
+);
+
+CREATE TABLE Compras (
+    af int UNIQUE,
+    id_fornecedor int NOT NULL,
+    nome_fornecedor varchar(100) NOT NULL,
+    id_filial int NOT NULL,
+    nome_filial varchar(100) NOT NULL,
+    id_comprador int NOT NULL,
+    nome_comprador varchar(100) NOT NULL,
+    data_af date NOT NULL,
+    data_recebimento date,
+    quantidade int NOT NULL,
+    desconto decimal,
+    outras_despesas decimal,
+    valor_total decimal NOT NULL,
+    enviada boolean NOT NULL,
+    aceitado boolean NOT NULL,
+    data_aceite date,
+    pendente boolean NOT NULL,
+    total_valor_pendente decimal,
+    total_quantidade_pendente int,
+    PRIMARY KEY (af)
+);
+
+CREATE TABLE Avaliacao_Compra (
+	af int NOT NULL,
+	id int NOT NULL,
+    fornecedor varchar(100) NOT NULL,
+    preco int NOT NULL,
+    prazo int NOT NULL,
+    qualidade int NOT NULL,
+    condicao_de_pagamento int NOT NULL,
+    impacto_positivo boolean NOT NULL,
+    avaliacao_final float NOT NULL,
+    observacao varchar(255),
+    PRIMARY KEY (af)
+);
+
+CREATE TABLE Avaliacao_Geral (
+    fornecedor varchar(100) NOT NULL,
+    preco int NOT NULL,
+    prazo int NOT NULL,
+    qualidade int NOT NULL,
+    condicao_de_pagamento int NOT NULL,
+    impacto_positivo boolean NOT NULL,
+    avaliacao_final float NOT NULL,
+    observacao TEXT,
+    PRIMARY KEY (fornecedor)
+);
+
+Após a criação das tabelas, a equipe começou a desenvolver o backend juntamente com o frontend do projeto, sendo o backend
+o local em que foram definidas as rotas que iriam retornar e criar novos objetos dentro do banco de dados, todas as rotas
+do backend foram definidas para que o sistema conseguisse receber um json para ser posto dentro do banco de dados e que o
+mesmo conseguisse retornar um json ao banco de dados para que o mesmo conseguisse fazer suas requisições mais facilmente.
+
+No entanto, o backend não foi inteiramente finalizado, sendo desenvolvidas todas as rotas, porém algumas sem funcionalidades
+até o momento atual, sendo as únicas rotas funcionais as de avaliações (tanto de compras como geral) e as rotas de fornecedores.
+
+Para que o código seja rodado, é necessario até o momento que o usuário intale atravês do pip o mysql-connector-python
+e o mvc-flask, após isso o usuário apenas precisará digitar "flask run" no terminal ou rodar o código.

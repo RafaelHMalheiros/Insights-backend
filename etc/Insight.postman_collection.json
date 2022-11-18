@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "a23f1e11-76f4-45a7-870f-b6252c507d40",
+		"name": "Insight",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20371305"
+	},
+	"item": [
+		{
+			"name": "Fornecedores",
+			"item": [
+				{
+					"name": "Criar um novo fornecedor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 43,\r\n    \"fornecedor\": \"nome5\",\r\n    \"produto\": \"computador\",\r\n    \"email\": \"cesarcompras@cesar.com\",\r\n    \"contato_telefonico\": \"(81) 99999-9999\",\r\n    \"cidade\": \"Recife\",\r\n    \"fornecedor_local\": false,\r\n    \"link\": \"www.link.com\",\r\n    \"categoria\": \"Eletronicos\",\r\n    \"status_atual\": \"Ativo\",\r\n    \"filial\": \"Recife\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/new/fornecedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"new",
+								"fornecedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar todos os fornecedores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/returnall/fornecedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"returnall",
+								"fornecedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar uma avaliação de um fornecedor especifico especifica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/return/fornecedor/43",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"return",
+								"fornecedor",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma avaliação de um fornecedor especifico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/delete/fornecedor/43",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"delete",
+								"fornecedor",
+								"43"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Avaliações gerais",
+			"item": [
+				{
+					"name": "Criar uma nova avaliação geral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fornecedor\": \"nome9\",\r\n    \"preco\": 4,\r\n    \"prazo\": 5,\r\n    \"qualidade\": 3,\r\n    \"condicao_de_pagamento\": 2,\r\n    \"impacto_positivo\": true,\r\n    \"avaliacao_final\": 3.5,\r\n    \"observacao\": \"achei muito bom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/new/avaliacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"new",
+								"avaliacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar todas as avaliações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/returnall/avaliacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"returnall",
+								"avaliacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar uma avaliação especifica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/return/avaliacao/nome7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"return",
+								"avaliacao",
+								"nome7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma avaliação especifica",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/delete/avaliacao/nome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"delete",
+								"avaliacao",
+								"nome"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Avaliações compras",
+			"item": [
+				{
+					"name": "Criar uma nova avaliação de uma compra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"af\": 432,\r\n    \"id\": 54245,\r\n    \"fornecedor\": \"nome3\",\r\n    \"preco\": 4,\r\n    \"prazo\": 5,\r\n    \"qualidade\": 3,\r\n    \"condicao_de_pagamento\": 2,\r\n    \"impacto_positivo\": false,\r\n    \"avaliacao_final\": 3.5,\r\n    \"observacao\": \"achei muito bom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/new/avaliacao_compras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"new",
+								"avaliacao_compras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar todas as avaliações de compras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/returnall/avaliacao_compras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"returnall",
+								"avaliacao_compras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retornar uma avaliação de compras especifica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/return/avaliacao_compras/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"return",
+								"avaliacao_compras",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma avaliação de compras especifica",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/delete/avaliacao_compras/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"delete",
+								"avaliacao_compras",
+								"32"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
